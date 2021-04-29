@@ -13,8 +13,7 @@
            GetPosition: function () {
                navigator.geolocation.getCurrentPosition(
                    function(position) {
-                       alert("緯度:" + position.coords.latitude + ",経度" + position.coords.longitude);
-                       this.message = "緯度:" + position.coords.latitude + ",経度" + position.coords.longitude;
+                       alert("緯度:" + position.coords.latitude + ",経度" + position.coords.longitude + ",方角" + position.coords.heading);
                    },
                    function(error) {
                        switch(error.code) {
