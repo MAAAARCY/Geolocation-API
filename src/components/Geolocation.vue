@@ -1,18 +1,31 @@
 <template>
-  <dev>
-    <dev id = "title">
+  <div>
+    <div id="title">
         Geolocation API
-    </dev>
+    </div>
     <button v-on:click="GetPosition">Get Position</button>
-  </dev>
+    <p v-if="isCorrespond">対応しています</p>
+    <p v-else>対応していません</p>
+  </div>
 </template>
 
 <script>
    export default {
+       data(){
+           return {
+               isCorrespond: false
+           }
+       },
+       created(){
+           if(navigator.geolocation){
+               this.isCorrespond = true;
+           }
+       },
        methods: {
            GetPosition: function () {
                navigator.geolocation.getCurrentPosition(
                    function(position) {
+                       console.log(position);
                        alert("緯度:" + position.coords.latitude + ",経度" + position.coords.longitude + ",方角" + position.coords.heading);
                    },
                    function(error) {
