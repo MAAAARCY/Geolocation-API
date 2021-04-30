@@ -23,7 +23,7 @@
        },
        methods: {
            GetPosition: function () {
-               navigator.geolocation.getCurrentPosition(
+               navigator.geolocation.watchPosition(
                    function(position) {
                        console.log(position);
                        alert("緯度:" + position.coords.latitude + ",経度" + position.coords.longitude + ",方角" + position.coords.heading);
