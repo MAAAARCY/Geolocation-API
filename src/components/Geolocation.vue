@@ -43,6 +43,9 @@
                             alert(error.code);
                             break;
                        }
+                   },
+                   {
+                       enableHighAccuracy: true
                    }
                );
            }
